@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Notas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- BARRA LATERAL -->
+    <div class="barra-lateral">
+        <h2 class="logotipo">Gestor de Notas</h2>
+
+        <!-- Botón para crear una nueva nota -->
+        <button id="boton-nueva-nota" class="boton-principal" title="Nueva Nota" onclick="crearNuevaNota()">
+            <i class="fa-solid fa-plus"></i> Nueva Nota
+        </button>
+
+        <!-- Notas recientes visitadas -->
+        <h3 class="titulo-seccion">Recientes</h3>
+        <div id="lista-recientes" class="contenedor-lista"></div>
+
+        <!-- Lista de todas las notas -->
+        <h3 class="titulo-seccion">Mis Notas</h3>
+        <div id="lista-notas" class="contenedor-lista"></div>
+    </div>
+
+    <!-- PANEL DE EDICIÓN -->
+    <div class="contenido-principal">
+        <!-- Header del editor -->
+        <div class="header-editor">
+            <h1 id="visor-titulo-nota" class="titulo-nota">Selecciona o crea una nota</h1>
+
+            <!-- Botones para Deshacer/Rehacer cambios (Pilas) -->
+            <div class="controles-historial">
+                <button id="boton-deshacer" class="boton-icono" title="Ctrl + Z" onclick="deshacerCambio()" disabled>
+                    <i class="fa-solid fa-rotate-left"></i> Deshacer
+                </button>
+                <button id="boton-rehacer" class="boton-icono" title="Ctrl + Shift + Z" onclick="rehacerCambio()"
+                    disabled>
+                    Rehacer <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Editor de texto plano para escribir -->
+        <textarea id="editor-texto" class="cuerpo-editor" disabled onkeydown="manejarAtajos(event)"
+            oninput="controlarEscritura()"
+            placeholder="Selecciona o crea una nota del explorador para comenzar a escribir..."></textarea>
+    </div>
+
+    <!-- Archivos JavaScript -->
+    <script src="js/Nodo.js"></script>
+    <script src="js/Nota.js"></script>
+    <script src="js/Pila.js"></script>
+    <script src="js/ColaCircular.js"></script>
+    <script src="js/GestorNotas.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
